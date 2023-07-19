@@ -1,4 +1,4 @@
-package com.eugene_dev.service;
+ package com.eugene_dev.service;
 
 import com.eugene_dev.sender.VolunteerHelpBotSender;
 import lombok.extern.slf4j.Slf4j;
