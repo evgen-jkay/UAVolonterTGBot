@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 @Component
 public class StartCommandHandler extends UserRequestHandler {
 
-    private static String command = "/start";
+    private static final String command = "/start";
 
     private final TelegramService telegramService;
     private final KeyboardHelper keyboardHelper;
@@ -34,11 +34,11 @@ public class StartCommandHandler extends UserRequestHandler {
                 replyKeyboard);
 
         telegramService.sendMessage(request.getChatId(), "Обирайте з меню нижче ⤵️");
-
     }
 
     @Override
     public boolean isGlobal() {
         return true;
     }
+
 }

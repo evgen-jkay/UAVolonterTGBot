@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultAbsSender;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 
-
 @Slf4j
 @Component
 public class VolunteerHelpBotSender extends DefaultAbsSender {
@@ -14,6 +13,7 @@ public class VolunteerHelpBotSender extends DefaultAbsSender {
     @Value("${bot.token}")
     private String botToken;
 
+    @Deprecated
     protected VolunteerHelpBotSender() {
         super(new DefaultBotOptions());
     }
@@ -22,4 +22,5 @@ public class VolunteerHelpBotSender extends DefaultAbsSender {
     public String getBotToken() {
         return botToken;
     }
+
 }

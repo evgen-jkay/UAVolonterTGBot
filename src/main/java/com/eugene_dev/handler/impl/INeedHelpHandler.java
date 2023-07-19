@@ -36,7 +36,7 @@ public class INeedHelpHandler extends UserRequestHandler {
     @Override
     public void handle(UserRequest userRequest) {
         ReplyKeyboardMarkup replyKeyboardMarkup = keyboardHelper.buildCitiesMenu(cities);
-        telegramService.sendMessage(userRequest.getChatId(),"Оберіть місто або опишіть вручну⤵️", replyKeyboardMarkup);
+        telegramService.sendMessage(userRequest.getChatId(), "Оберіть місто або опишіть вручну⤵️", replyKeyboardMarkup);
 
         UserSession userSession = userRequest.getUserSession();
         userSession.setState(ConversationState.WAITING_FOR_CITY);

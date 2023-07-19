@@ -32,7 +32,7 @@ public class TextEnteredHandler extends UserRequestHandler {
     @Override
     public void handle(UserRequest userRequest) {
         ReplyKeyboardMarkup replyKeyboardMarkup = keyboardHelper.buildMainMenu();
-        telegramService.sendMessage(userRequest.getChatId(),"Дякую, ваше звернення було зареєстровано!", replyKeyboardMarkup);
+        telegramService.sendMessage(userRequest.getChatId(), "Дякую, ваше звернення було зареєстровано!", replyKeyboardMarkup);
 
         String text = userRequest.getUpdate().getMessage().getText();
 
@@ -46,4 +46,5 @@ public class TextEnteredHandler extends UserRequestHandler {
     public boolean isGlobal() {
         return false;
     }
+
 }

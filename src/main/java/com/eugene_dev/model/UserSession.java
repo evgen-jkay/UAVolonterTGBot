@@ -1,6 +1,5 @@
 package com.eugene_dev.model;
 
-
 import com.eugene_dev.enums.ConversationState;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,5 @@
 package com.eugene_dev;
 
-
 import com.eugene_dev.model.UserRequest;
 import com.eugene_dev.model.UserSession;
 import com.eugene_dev.service.UserSessionService;
@@ -23,11 +22,11 @@ public class VolunteerHelpBot extends TelegramLongPollingBot {
     private final Dispatcher dispatcher;
     private final UserSessionService userSessionService;
 
+    @Deprecated
     public VolunteerHelpBot(Dispatcher dispatcher, UserSessionService userSessionService) {
         this.dispatcher = dispatcher;
         this.userSessionService = userSessionService;
     }
-
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -65,7 +64,9 @@ public class VolunteerHelpBot extends TelegramLongPollingBot {
     }
 
     @Override
+    @Deprecated
     public String getBotToken() {
         return botToken;
     }
+
 }

@@ -45,4 +45,5 @@ public class CancelHandler extends UserRequestHandler {
     public boolean isGlobal() {
         return true;
     }
+
 }

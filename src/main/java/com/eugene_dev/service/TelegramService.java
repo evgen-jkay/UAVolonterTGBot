@@ -1,7 +1,6 @@
 package com.eugene_dev.service;
 
-
-import com.eugene_dev.VolunteerHelpBot;
+import com.eugene_dev.sender.VolunteerHelpBotSender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -12,9 +11,10 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 @Slf4j
 @Component
 public class TelegramService {
-    private final VolunteerHelpBot botSender;
 
-    public TelegramService(VolunteerHelpBot botSender) {
+    private final VolunteerHelpBotSender botSender;
+
+    public TelegramService(VolunteerHelpBotSender botSender) {
         this.botSender = botSender;
     }
 
@@ -40,4 +40,5 @@ public class TelegramService {
             log.error("Виняток: ", e);
         }
     }
+
 }
