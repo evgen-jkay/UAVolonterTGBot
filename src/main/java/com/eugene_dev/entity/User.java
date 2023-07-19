@@ -16,6 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_name", length = 25)
+    private String userName;
+
     @Column(name = "first_name", length = 25)
     private String firstName;
 
@@ -25,7 +28,7 @@ public class User {
     @Column(name = "phone", unique = true)
     private Integer userPhone;
 
-    @Column(name = "user_id", unique = true)
+    @Column(name = "chat_id", unique = true)
     private Long userId;
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -34,7 +37,13 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, Integer userPhone, Long userId) {
+    public User(
+            String userName,
+            String firstName,
+            String lastName,
+            Integer userPhone,
+            Long userId) {
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userPhone = userPhone;
@@ -45,11 +54,20 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userPhone=" + userPhone +
                 ", userId=" + userId +
                 '}';
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getFirstName() {

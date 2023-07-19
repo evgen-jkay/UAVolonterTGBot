@@ -1,4 +1,4 @@
-package com.eugene_dev.handler.impl;
+package com.eugene_dev.handler.commands;
 
 import com.eugene_dev.entity.User;
 import com.eugene_dev.handler.UserRequestHandler;
@@ -32,16 +32,21 @@ public class StartCommandHandler extends UserRequestHandler {
 
     @Override
     public void handle(UserRequest request) {
-        // це тустую
-        Long userId = request.getChatId();
+        // це тустую. робе. поки зберігаємо тільки ІД чата користувача
 
-        User user = userRepository.findByUserId(userId);
-        if (user == null) {
-            user = new User();
-            user.setUserId(userId);
+        try {
+            Long user = request.getChatId();
+
+            User userId = userRepository.findByUserId(user);
+            if (userId == null) {
+                userId = new User();
+                userId.setUserId(user);
+            }
+
+            userRepository.save(userId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-        userRepository.save(user);
         // кінець
 
         ReplyKeyboard replyKeyboard = keyboardHelper.buildMainMenu();
