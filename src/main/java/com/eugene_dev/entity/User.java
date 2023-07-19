@@ -16,29 +16,29 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "firstName", length = 25, nullable = false)
+    @Column(name = "first_name", length = 25)
     private String firstName;
 
-    @Column(name = "lastName", length = 50)
+    @Column(name = "last_name", length = 50)
     private String lastName;
 
     @Column(name = "phone", unique = true)
     private Integer userPhone;
 
-    @Column(name = "chatId", length = 50, nullable = false, unique = true)
-    private Integer chatId;
+    @Column(name = "user_id", unique = true)
+    private Long userId;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Message> messages = new ArrayList<>();
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Message> messages = new ArrayList<>();
 
     public User() {
     }
 
-    public User(String firstName, String lastName, Integer userPhone, Integer chatId) {
+    public User(String firstName, String lastName, Integer userPhone, Long userId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userPhone = userPhone;
-        this.chatId = chatId;
+        this.userId = userId;
     }
 
     @Override
@@ -48,27 +48,39 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userPhone=" + userPhone +
-                ", chatId=" + chatId +
+                ", userId=" + userId +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getUserPhone() {
         return userPhone;
     }
 
-    public Integer getChatId() {
-        return chatId;
+    public void setUserPhone(Integer userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

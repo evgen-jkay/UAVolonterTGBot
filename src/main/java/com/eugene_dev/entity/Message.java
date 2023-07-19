@@ -13,15 +13,15 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city", length = 50)
     private String city;
 
-    @Column(name = "message", length = 3000, nullable = false)
+    @Column(name = "message", length = 3000)
     private String message;
 
-    @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "usersId")
+//    private User user;
 
     public Message() {
     }
@@ -37,7 +37,6 @@ public class Message {
                 "id=" + id +
                 ", city='" + city + '\'' +
                 ", message='" + message + '\'' +
-                ", user=" + user +
                 '}';
     }
 
